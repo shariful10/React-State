@@ -3,7 +3,7 @@ type TCount = {
 	setCount: React.Dispatch<React.SetStateAction<number>>;
 };
 
-const CounterWithFuncComponent: React.FC<TCount> = ({ count, setCount }) => {
+const CounterWithFuncComponent: React.FC<TCount> = ({ setCount }) => {
 	return (
 		<div>
 			<button

@@ -1,11 +1,5 @@
 import { ChangeEvent, useReducer } from "react";
 
-// type TUser = {
-// 	name?: string;
-// 	age?: number;
-// 	hobbies?: string[];
-// };
-
 type TAction =
 	| { type: "addName"; payload: string }
 	| { type: "addAge"; payload: number }

@@ -1,10 +1,13 @@
-import UserInfoWithUseReducer from "./components/UserInfoWithUseReducer";
+import TodoForm from "./components/todo/TodoForm";
+import TodoProvider from "./context/TodoProvider";
 
 const App = () => {
 	return (
-		<div className="container mx-auto mt-10">
-			<UserInfoWithUseReducer />
-		</div>
+		<TodoProvider>
+			<div className="container mx-auto mt-10">
+				<TodoForm />
+			</div>
+		</TodoProvider>
 	);
 };
 

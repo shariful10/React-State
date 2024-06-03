@@ -4,23 +4,35 @@ type TTodoProvider = {
 	children: ReactNode;
 };
 
-type TTodo = {
+export type TTodo = {
 	id: string;
 	title: string;
 	isCompleted: boolean;
 };
 
 type TAction = {
-	type: string;
-	payload: TTodo;
+	type: "addTodo" | "taskComplete";
+	payload: TTodo | string;
+};
+
+const typeConstance = {
+	ADD_TODO: "addTodo",
+	TASK_COMPLETE: "taskComplete",
 };
 
 const initialState: TTodo[] = [];
 
-const reducer = (currentState: TTodo[], action: TAction) => {
+const reducer = (currentState: TTodo[], action: TAction): TTodo[] => {
 	switch (action.type) {
-		case "addTodo":
-			return [...currentState, action.payload];
+		case typeConstance.ADD_TODO:
+			return [...currentState, action.payload as TTodo];
+
+		case typeConstance.TASK_COMPLETE:
+			return currentState.map((item) =>
+				item.id === action.payload
+					? { ...item, isCompleted: !item.isCompleted }
+					: item
+			);
 
 		default:
 			return currentState;
